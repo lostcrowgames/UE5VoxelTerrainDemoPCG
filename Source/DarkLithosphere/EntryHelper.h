@@ -27,7 +27,6 @@ public:
 	TSubclassOf<class UUserWidget> FatalMessageWidget;
 
 private:
-	void CheckUpdates();
 
 	bool bFirstTick = true;
 

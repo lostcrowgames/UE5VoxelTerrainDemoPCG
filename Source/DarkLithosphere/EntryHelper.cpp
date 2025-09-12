@@ -98,9 +98,6 @@ void AEntryHelper::BeginPlay() {
 	}
 
 	SetSandboxPlayerId(PlayerInfo.PlayerUid);
-
-
-	CheckUpdates();
 	
 }
 
@@ -127,33 +124,4 @@ bool CheckSaveDirLocal(FString SaveDir) {
 	}
 
 	return true;
-}
-
-void AEntryHelper::CheckUpdates() {
-	FString Url = FString::Printf(TEXT("http://172.86.122.78:8080/api/v1/lastversion?v=%s&p=%s"), *GetVersionString(), *GetSandboxPlayerId());
-	FHttpModule& HttpModule = FHttpModule::Get();
-	TSharedRef<IHttpRequest, ESPMode::ThreadSafe> RestRequest = HttpModule.CreateRequest();
-	RestRequest->SetVerb(TEXT("GET"));
-	//pRequest->SetHeader(TEXT("Content-Type"), TEXT("application/x-www-form-urlencoded"));
-	//FString RequestContent = TEXT("identity=") + NewUser + TEXT("&password=") + NewPassword + TEXT("&query=") + uriQuery;
-	//pRequest->SetContentAsString(RequestContent);
-
-	RestRequest->SetURL(Url);
-	RestRequest->OnProcessRequestComplete().BindLambda(
-		[&](FHttpRequestPtr Request, FHttpResponsePtr Response, bool connectedSuccessfully) mutable {
-			if (connectedSuccessfully) {
-				FString ResponseString = Response->GetContentAsString();
-				UE_LOG(LogTemp, Warning, TEXT("%s"), *ResponseString);
-			}
-			else {
-				switch (Request->GetStatus()) {
-				case EHttpRequestStatus::Failed_ConnectionError:
-					UE_LOG(LogTemp, Error, TEXT("Connection failed."));
-				default:
-					UE_LOG(LogTemp, Error, TEXT("Request failed."));
-				}
-			}
-		});
-
-	RestRequest->ProcessRequest();
 }
