@@ -4,7 +4,7 @@ This is a fork of bw2012's UE5VoxelTerrainDemo.
 
 Currently using Unreal Engine 5.7.1.
 
-# GOAL: 
+# Intro
 The goal is to create a powerful multiplayer-ready procedural world generator similar to Valheim, using bw2012's voxel terrain generator as a base, and extending it to use PCG to generate forests, biomes, villages camps, etc...
 
 ----------------------------------------------------------------------------------------------------------------
