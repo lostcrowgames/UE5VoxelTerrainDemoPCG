@@ -1,37 +1,69 @@
-Build
-Binaries
-DerivedDataCache
-Intermediate
-Saved
+# ===============================
+# Unreal Engine 5.7 .gitignore
+# ===============================
+
+# Ignore intermediate build files
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
 *.opensdf
 *.sdf
-*.sln
 *.suo
+*.log
+*.vsconfig
+
+# Ignore compiled object files
+*.obj
+*.exe
+*.dll
+*.pdb
+*.lib
+*.app
+*.dSYM/
+*.ilk
+
+# Ignore packaged builds
+*.pak
+*.uprojectdirs
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.cache
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore Visual Studio files
+.vs/
+.vscode/
+*.VC.db
+*.VC.opendb
+*.VC.VC.opendb
+
+# Ignore user-specific config files
+*.user
+*.userprefs
+*.ini
+*.local
+*.log
+
+# Ignore Crash Reports
+Saved/Crashes/
+
+# Ignore plugin builds (if you want to rebuild them from source)
+Plugins/*/Binaries/
+Plugins/*/Intermediate/
+
+# Optional: Ignore AssetRegistry
+DerivedDataCache/AssetRegistry.bin
+
+# Ignore auto-generated project files
 *.xcodeproj
 *.xcworkspace
-.codelite
-.kdev4
-.clang
-.vs
-*.db
-*.ipch
-
-*.opendb
-*.db
-*.rar
-
-/Content
-.vsconfig
-/enc_temp_folder
-
-
-.ignore
-.vscode/
-DarkLithosphere.code-workspace
-Makefile
-
-*.txt
-*.workspace
-
-UpgradeLog.htm
-
+*.sln
+*.sdf
+*.suo
