@@ -1,20 +1,18 @@
-# UE5VoxelTerrainDemo
+# UE5VoxelTerrainDemoPCG
+
+This is a fork of bw2012's UE5VoxelTerrainDemo.
+
+Currently using Unreal Engine 5.7.1.
+
+# GOAL: 
+The goal is to create a powerful multiplayer-ready procedural world generator similar to Valheim, using bw2012's voxel terrain generator as a base, and extending it to use PCG to generate forests, biomes, villages camps, etc...
+
+----------------------------------------------------------------------------------------------------------------
 Unreal Engine 5 procedural voxel terrian example (partially based on [Transvoxel™](https://github.com/EricLengyel/Transvoxel) Algorithm by Eric Lengyel)
 This project provides tools to generate, visualize and in-game change volume terrain using voxels.
 
 > [!NOTE]  
-> Tested with Unreal Engine 5.3.1 [Windows 10] [Ubuntu 20.04] [Ubuntu 22.04]
-
-![Voxel terrain](https://github.com/bw2012/UE5VoxelTerrainDemo/blob/master/demo.gif?raw=true)
-
-![Voxel cave](https://github.com/bw2012/UE5VoxelTerrainDemo/blob/master/cave_demo.gif?raw=true)
-
-
-# Download playable demo
-[UE5-Windows](https://mega.nz/file/mKoSQDTD#H9zhTK-HGyCfolQuhSGCJ-jOSXfA_IlOsWVU5xPTAgU) 
-
-[UE5-Linux](https://drive.google.com/file/d/1VnsI3jswhqTNYM_dQ2qHLa78wgQDE0g8/view) 
-
+> Tested with Unreal Engine 5.7.1. Not backwards compatible with older versions of Unreal Engine 5.
 
 # Features
 * Runtime terrain modification
@@ -24,15 +22,4 @@ This project provides tools to generate, visualize and in-game change volume ter
 * Up to 65535 terrain materials
 
 # Usage
-1. Install MS Visual Studio 2022
-2. Download last stable project or clone repository ```git clone --recursive https://github.com/bw2012/UE5VoxelTerrainDemo.git```
-3. Open project directory 
-4. Download [Content.rar](https://drive.google.com/file/d/1M5g3yNBzTpMd4YA3FUJi72maObA_pDXE/view?usp=sharing) (~2Gb) and unzip it to ```Content``` folder
-5. Open project file with Unreal Engine 5
-6. Wait for compile UE5 KiteDemo shaders (first run may take long time)
-
-# Links
-
-[Telegram (RU)](https://t.me/darklithosphere)
-
-[VK](https://vk.com/darklithosphere)
+Download last stable project or clone repository ```git clone https://github.com/lostcrowgames/UE5VoxelTerrainDemoPCG.git```
