@@ -74,7 +74,7 @@ void ATerrainController::BeginPlayServer() {
 	Super::BeginPlayServer();
 
 	if (LevelController) {
-		// потом доделаю
+		// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		// disconnect == character sleep
 		//LevelController->SpawnTempCharacterList();
 	}
@@ -411,4 +411,47 @@ const FTerrainObjectInfo* ATerrainController::GetInstanceObjStaticInfo(const uin
 	}
 
 	return nullptr;
+}
+
+// Lost Crow Games (LCG) -- Added buttons to generate and destory voxel terrain in editoEDITORCONFIG_API
+void ATerrainController::Generate() {
+#if WITH_EDITOR
+	UE_LOG(LogTemp, Warning, TEXT("=== Generating New Terrain ==="));
+	UE_LOG(LogTemp, Warning, TEXT("Seed: %d"), Seed);
+	
+	FString SaveDir = GetSaveDir();
+	
+	// Close any open files first
+	CloseFile();
+	
+	// Delete existing terrain data
+	IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
+	if (PlatformFile.DirectoryExists(*SaveDir)) {
+		bool bSuccess = PlatformFile.DeleteDirectoryRecursively(*SaveDir);
+		if (bSuccess) {
+			UE_LOG(LogTemp, Warning, TEXT("Deleted existing terrain data"));
+		} else {
+			UE_LOG(LogTemp, Error, TEXT("Failed to delete terrain data directory"));
+		}
+	}
+	
+	// Clear all terrain zones from the world
+	TArray<UTerrainZoneComponent*> ZonesToDestroy;
+	for (UActorComponent* Component : GetComponents()) {
+		UTerrainZoneComponent* Zone = Cast<UTerrainZoneComponent>(Component);
+		if (Zone) {
+			ZonesToDestroy.Add(Zone);
+		}
+	}
+	
+	for (UTerrainZoneComponent* Zone : ZonesToDestroy) {
+		Zone->DestroyComponent(false);
+	}
+	
+	// Clear internal data structures
+	ObjectsByZoneMap.Empty();
+	ZoneAnchorsMap.Empty();
+	
+	UE_LOG(LogTemp, Warning, TEXT("=== Ready to generate - Press Play ==="));
+#endif
 }

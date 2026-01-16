@@ -30,11 +30,12 @@ struct FSandboxObjectsByZone {
 /**
  * 
  */
+// TerrainController.h
+
 UCLASS()
 class DARKLITHOSPHERE_API ATerrainController : public ASandboxTerrainController
 {
 	GENERATED_BODY()
-	
 	
 public:
 
@@ -68,6 +69,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "UnrealSandbox")
 	void ShutdownAndSaveMap();
 
+	// Editor button to regenerate terrain with new seed
+	UFUNCTION(CallInEditor, Category = "UnrealSandbox Terrain General", meta = (DisplayName = "Generate New Terrain"))
+	void Generate();
 
 public:
 
