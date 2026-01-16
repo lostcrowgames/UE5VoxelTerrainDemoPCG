@@ -69,4 +69,5 @@ DerivedDataCache/AssetRegistry.bin
 *.suo
 
 # Ignore legacy art
-Content/UE5VoxelTerrainDemoPCG/Art/Legacy/*
+Content/UE5VoxelTerrainDemoPCG/Art/Legacy/*Content/__ExternalActors__/
+Content/__ExternalObjects__/
